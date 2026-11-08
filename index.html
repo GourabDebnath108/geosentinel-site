@@ -3,17 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slow Software Studio — Developer Portal & Apps</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Slow Software Studio — Mobile & Geospatial Applications</title>
+  
+  <meta name="description" content="Slow Software Studio crafts premium, high-performance mobile applications and interactive 3D geospatial platforms for Android.">
+  <meta name="author" content="Slow Software Studio">
+  
+  <!-- Favicon from Slow Software Studio -->
+  <link rel="icon" type="image/png" href="developer_logo.png">
+  
   <style>
     :root {
       --primary: #1a73e8;
+      --primary-hover: #1557b0;
       --text-main: #202124;
       --text-sub: #5f6368;
       --bg-page: #f8f9fa;
       --bg-card: #ffffff;
       --border: #dadce0;
-      --accent-red: #dc143c;
+      --accent: #1a73e8;
     }
     * {
       box-sizing: border-box;
@@ -28,14 +35,14 @@
       padding: 24px 16px;
     }
     .container {
-      max-width: 920px;
+      max-width: 960px;
       margin: 0 auto;
     }
     header {
       background-color: var(--bg-card);
       border-radius: 12px;
-      padding: 24px 32px;
-      margin-bottom: 28px;
+      padding: 20px 28px;
+      margin-bottom: 32px;
       border: 1px solid var(--border);
       box-shadow: 0 1px 3px rgba(60,64,67, 0.08);
       display: flex;
@@ -44,39 +51,39 @@
       flex-wrap: wrap;
       gap: 16px;
     }
-    .brand {
+    .brand-group {
       display: flex;
       align-items: center;
       gap: 14px;
+      text-decoration: none;
+      color: inherit;
     }
-    .brand-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #1a73e8, #0d47a1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 800;
-      font-size: 1.3rem;
-      box-shadow: 0 2px 6px rgba(26,115,232,0.3);
+    .brand-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      object-fit: contain;
     }
-    .brand-info h1 {
-      font-size: 1.4rem;
+    .brand-text h1 {
+      font-size: 1.35rem;
       font-weight: 700;
       color: var(--text-main);
+      letter-spacing: -0.3px;
     }
-    .brand-info p {
-      font-size: 0.9rem;
+    .brand-text p {
+      font-size: 0.88rem;
       color: var(--text-sub);
     }
-    .nav-actions {
+    .header-nav {
       display: flex;
+      align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
     }
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       padding: 8px 16px;
       font-size: 0.9rem;
       font-weight: 600;
@@ -92,27 +99,55 @@
     .btn-outline:hover {
       background: #f1f3f4;
     }
+    .btn-play {
+      background: #01875f;
+      color: #ffffff;
+      border: 1px solid #01875f;
+    }
+    .btn-play:hover {
+      background: #016849;
+    }
     .btn-primary {
       background: var(--primary);
       color: #ffffff;
       border: 1px solid var(--primary);
     }
     .btn-primary:hover {
-      background: #1557b0;
+      background: var(--primary-hover);
     }
-    .section-title {
-      font-size: 1.3rem;
+    .hero-banner {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 3px rgba(60,64,67, 0.08);
+      text-align: center;
+    }
+    .hero-banner h2 {
+      font-size: 1.85rem;
       font-weight: 700;
       color: var(--text-main);
-      margin: 28px 0 16px 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .hero-banner p {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 28px 0 18px 4px;
     }
     .apps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
     }
     .app-card {
       background: var(--bg-card);
@@ -127,73 +162,55 @@
     }
     .app-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(60,64,67, 0.15);
+      box-shadow: 0 6px 16px rgba(60,64,67, 0.12);
     }
-    .card-header {
+    .card-top {
       display: flex;
       gap: 16px;
-      align-items: flex-start;
       margin-bottom: 14px;
+      align-items: center;
     }
-    .app-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 14px;
+    .app-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
       object-fit: cover;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       flex-shrink: 0;
     }
-    .app-meta h2 {
+    .app-title-group h3 {
       font-size: 1.25rem;
       font-weight: 700;
-      color: var(--accent-red);
+      color: var(--text-main);
       margin-bottom: 4px;
     }
-    .app-tag {
-      display: inline-block;
-      font-size: 0.75rem;
+    .app-category {
+      font-size: 0.78rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       background: #e8f0fe;
       color: var(--primary);
-      padding: 2px 8px;
+      padding: 3px 8px;
       border-radius: 4px;
+      display: inline-block;
     }
-    .app-desc {
+    .app-description {
       font-size: 0.94rem;
       color: var(--text-sub);
       line-height: 1.55;
       margin-bottom: 20px;
     }
-    .card-footer {
+    .card-actions {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       border-top: 1px solid #f1f3f4;
       padding-top: 16px;
     }
-    .upcoming-card {
-      background: #fdfdfd;
-      border: 2px dashed #dadce0;
-      box-shadow: none;
-    }
-    .upcoming-card:hover {
-      transform: none;
-      box-shadow: none;
-    }
-    .info-banner {
-      background: #e8f0fe;
-      border-left: 4px solid var(--primary);
-      padding: 16px;
-      border-radius: 0 8px 8px 0;
-      margin-top: 28px;
-      font-size: 0.92rem;
-      color: #1a428a;
-    }
     footer {
       margin-top: 48px;
-      padding-top: 20px;
+      padding-top: 24px;
       border-top: 1px solid var(--border);
       text-align: center;
       font-size: 0.88rem;
@@ -212,68 +229,80 @@
 <body>
   <div class="container">
     <header>
-      <div class="brand">
-        <div class="brand-avatar">S</div>
-        <div class="brand-info">
+      <a href="./" class="brand-group">
+        <img src="developer_logo.png" alt="Slow Software Studio Logo" class="brand-logo-img">
+        <div class="brand-text">
           <h1>Slow Software Studio</h1>
-          <p>Official Developer Portal & Google Play Application Hub</p>
+          <p>Official Developer Portal</p>
         </div>
-      </div>
-      <div class="nav-actions">
-        <a href="app-ads.txt" target="_blank" class="btn btn-outline">app-ads.txt</a>
-        <a href="mailto:help.slowsoftware@gmail.com" class="btn btn-primary">Contact Support</a>
+      </a>
+      <div class="header-nav">
+        <a href="https://play.google.com/store/apps/dev?id=8133288976788178361" target="_blank" rel="noopener noreferrer" class="btn btn-play">
+          Google Play Store
+        </a>
+        <a href="app-ads.txt" target="_blank" class="btn btn-outline">
+          app-ads.txt
+        </a>
+        <a href="mailto:help.slowsoftware@gmail.com" class="btn btn-primary">
+          Contact Us
+        </a>
       </div>
     </header>
 
-    <h2 class="section-title">📱 Published Applications</h2>
-    <div class="apps-grid">
-      <!-- GeoSentinel App Card -->
-      <div class="app-card">
-        <div>
-          <div class="card-header">
-            <img src="logo.png" alt="GeoSentinel Logo" class="app-icon" />
-            <div class="app-meta">
-              <h2>GeoSentinel</h2>
-              <span class="app-tag">Real-Time Geospatial & OSINT</span>
-            </div>
-          </div>
-          <p class="app-desc">
-            A production-grade 3D offline map, satellite tracker, maritime reconnaissance, and geospatial situational awareness platform for Android.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="apps/geosentinel/" class="btn btn-primary">Privacy Policy & Legal</a>
-          <a href="app-ads.txt" class="btn btn-outline" target="_blank">AdMob app-ads.txt</a>
-        </div>
-      </div>
-
-      <!-- Multi-App Future Slot -->
-      <div class="app-card upcoming-card">
-        <div>
-          <div class="card-header">
-            <div class="app-icon" style="background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#757575; font-size:1.5rem;">+</div>
-            <div class="app-meta">
-              <h2 style="color: #5f6368;">Future Applications</h2>
-              <span class="app-tag" style="background:#eeeeee; color:#616161;">Modular App Directory</span>
-            </div>
-          </div>
-          <p class="app-desc">
-            All future applications developed by Slow Software Studio will be cataloged directly in this central directory under their dedicated <code>/apps/[app-name]</code> subfolder.
-          </p>
-        </div>
-        <div class="card-footer">
-          <span style="font-size: 0.85rem; color: #757575;">Unified AdMob Authorization: <code>pub-6268700071544915</code></span>
-        </div>
-      </div>
+    <div class="hero-banner">
+      <h2>Thoughtful, High-Performance Mobile Experiences</h2>
+      <p>
+        Slow Software Studio creates cutting-edge mobile applications focused on 3D planetary visualization, atmospheric intelligence, and immersive real-time simulations.
+      </p>
     </div>
 
-    <div class="info-banner">
-      <strong>AdMob Developer Verification Note:</strong> This domain hosts the official IAB Tech Lab <code>app-ads.txt</code> specification for Slow Software Studio. Authorized digital seller records apply universally across all Google Play apps listed under this developer identity.
+    <h2 class="section-title">Applications</h2>
+    <div class="apps-grid">
+      
+      <!-- GeoSentinel Application Card -->
+      <div class="app-card">
+        <div>
+          <div class="card-top">
+            <img src="logo.png" alt="GeoSentinel Logo" class="app-logo">
+            <div class="app-title-group">
+              <h3>GeoSentinel</h3>
+              <span class="app-category">3D Globe & Live Tracking</span>
+            </div>
+          </div>
+          <p class="app-description">
+            Interactive 3D planetary platform featuring real-time flight paths, maritime vessel tracking, satellite orbit paths, seismic alerts, and offline map navigation.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="apps/geosentinel/" class="btn btn-primary">Privacy Policy & Info</a>
+          <a href="app-ads.txt" class="btn btn-outline" target="_blank">app-ads.txt</a>
+        </div>
+      </div>
+
+      <!-- Slow Weather Application Card -->
+      <div class="app-card">
+        <div>
+          <div class="card-top">
+            <img src="slow_weather_logo.png" alt="Slow Weather Logo" class="app-logo">
+            <div class="app-title-group">
+              <h3>Slow Weather</h3>
+              <span class="app-category">3D Atmospheric Intelligence</span>
+            </div>
+          </div>
+          <p class="app-description">
+            Next-generation 3D weather intelligence platform combining hyper-local forecasts with breathtaking atmospheric simulations.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="https://play.google.com/store/apps/dev?id=8133288976788178361" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View on Google Play</a>
+        </div>
+      </div>
+
     </div>
 
     <footer>
       <p>&copy; 2026 Slow Software Studio. All rights reserved.</p>
-      <p style="margin-top: 6px;">
+      <p style="margin-top: 8px;">
         <a href="apps/geosentinel/">GeoSentinel Privacy Policy</a> |
         <a href="app-ads.txt">app-ads.txt</a> |
         <a href="mailto:help.slowsoftware@gmail.com">help.slowsoftware@gmail.com</a>
