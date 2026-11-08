@@ -4,3 +4,4 @@ This repository hosts the official developer site, Google Play Privacy Policy, a
 
 - **Privacy Policy:** Served at `index.html`
 - **AdMob Authorization:** Served at `app-ads.txt`
+
